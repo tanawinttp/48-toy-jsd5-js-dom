@@ -7,10 +7,19 @@
   </head>
   <body>
     <h1>JS-DOM-1 Exercise 2</h1>
-    <input type="text" placeholder="Full Name" onClick="alert('Full Name')" />
-    <input type="text" placeholder="Picture" />
-    <input type="text" placeholder="Occupation" />
+    <input type="text" placeholder="Full Name" onClick="alert('Please type firstname and lastname')" />
+    <input type="text" placeholder="Picture" onclick="picTure()"/>
+    <input type="text" placeholder="Occupation" onclick="Occupation()"/>
     <button>Submit</button>
   </body>
-  <script type="text/javascript"></script>
+  <script type="text/javascript">
+    const picTure = () => {
+      alert('Pleas upload picture to cloud and use valid URL')
+    }
+
+    const Occupation = () => {
+      alert('Pleas insert actual data')
+    }
+
+  </script>
 </html>
