@@ -7,13 +7,18 @@
   </head>
   <body>
     <h1>JS-DOM-1 Exercise 1</h1>
-    <button onClick="alertMe()">Alert me</button>
+    <button onClick="alert('Data is loading, please wait 3 seconds.')">Alert me</button>
+    <button onclick="alertMe2()">Alert me 2</button>
   </body>
+
+
   <script type="text/javascript">
     // code here
-
-    const notify = () => {
-      // code here
-    };
+    alert("Page is loading!");
+    
+    function alertMe2(){
+      let press = 'Data is loading, please wait 3 seconds.' ;
+      alert(press);
+    }
   </script>
 </html>
