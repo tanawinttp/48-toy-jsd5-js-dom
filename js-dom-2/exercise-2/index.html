@@ -8,17 +8,26 @@
   <body>
     <input id="fullname" type="text" placeholder="Full Name" />
     <input id="nickname" type="text" placeholder="NickName" />
+    <input id="age" type="text" placeholder="Age" />
+    <input id="email" type="email" placeholder="Email" />
+
     <button onClick="createHTML()">Submit</button>
-    <ul></ul>
+    <h1 id="fullname-display"></h1>
+    <ul id="list-ul"></ul>
   </body>
   <script type="text/javascript">
     const createHTML = () => {
       const fullname = document.querySelector("#fullname");
       const nickname = document.querySelector("#nickname");
-
+      const age = document.querySelector("#age");
+      const email = document.querySelector("#email");
       // select ul first here
-      const dive = document.querySelector("....");
-      dive.innerHTML = // code here
+      const h1E = document.querySelector("#fullname-display");
+      h1E.innerHTML = `Hi! ${fullname.value}`;
+
+      const dive = document.querySelector("#list-ul");
+      dive.innerHTML = `<li>Nickname : ${nickname.value}</li> <li>Age : ${age.value}</li> <li>E-mail : ${email.value}</li>`
+      // dive.innerHTML = <li>`${fullname}`</li> //nickname.value;    // code here
     };
   </script>
 </html>
