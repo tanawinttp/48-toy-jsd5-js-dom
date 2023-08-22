@@ -16,9 +16,10 @@
       const fullname = document.querySelector("#fullname").value;
       const nickname = document.querySelector("#nickname").value;
       alert(`Hi! ${fullname} ${nickname}`);
-      document.querySelector("#h1e").innerText = fullname +" "+ nickname;
-      // document.querySelector("#h1e").innerHTML = nickname;
-      // document.querySelector("#h1e").innerHTML = ;
+      const h1eH = document.querySelector("#h1e");
+      h1eH.innerText = "Welcome " + fullname + ' ' + nickname;
+      // document.querySelector("#h1e").innerText = fullname.value +" "+ nickname.value;
+
     }
     // write your own function here
     // write code here
