@@ -48,7 +48,7 @@
       <label for="imageInput">Image URL : </label>
       <input type="text" id="imageInput" name="img">
 
-      <button type="button" id="buttonUpdate" onclick="updateData(event)">
+      <button type="button" id="buttonUpdate" onclick="updateData()">
         Update
       </button>
     </div>
@@ -58,7 +58,7 @@
 
 
 <script>
-  const updateData = (event) => {
+  const updateData = () => {
     //name
     const nameInput = document.querySelector('#nameInput');
     const nameDisplay = document.querySelector('#name');
