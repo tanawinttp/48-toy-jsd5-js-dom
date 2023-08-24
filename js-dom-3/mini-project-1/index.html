@@ -16,7 +16,7 @@
       </div>
 
       <div class="info">
-        <h2 id="name">Toy</h2>
+        <h2 id="name">Full Name?</h2>
         <p>Date of Birth : <span id ="dob">...</span></p>
         <p>Expiration Date : <span id="expiration">...</span></p>
         <p>License No : <span id="license">...</span></p>
@@ -42,7 +42,7 @@
 
       <label for="stateInput">State : </label>
       <input type="text" id="stateInput" name="state">
-
+ 
       <br>
 
       <label for="imageInput">Image URL : </label>
@@ -85,8 +85,8 @@
     StateDisplay.innerText = StateInput.value;
 
     //image src
-    const imageDisplay = document.querySelector('#image');
     const imageInput = document.querySelector('#imageInput');
+    const imageDisplay = document.querySelector('#image');
     imageDisplay.setAttribute("src" , imageInput.value);
   }
 </script>
