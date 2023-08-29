@@ -35,7 +35,7 @@ const RunningForm = () => {
 
         <label htmlFor="running">Current Running (Minutes):</label>
         <input type="number" id="running" name="running" placeholder="Min."/>
-
+        
         <br />
         <br />
 
