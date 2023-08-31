@@ -62,7 +62,8 @@ const RunningForm = () => {
   );
 };
 
-const TableDisplay = () => {
+const TableDisplay = (props) => {
+  const { data } = props;
   return (
     <>
       <h1>Entered Data</h1>
@@ -76,16 +77,29 @@ const TableDisplay = () => {
             <th>Good Running</th>
           </tr>
         </thead>
-        <TableBody />
+        <TableBody table_data={data} />
       </table>
     </>
   );
 };
 
-const TableBody = () => {
+const TableBody = (props) => {
+  const { table_data } = props;
   return (
-    // code here
-  )
-}
+    <tbody>
+      {table_data.map((item) => {
+        return (
+          <tr>
+            <td>{item.name}</td>
+            <td>{item.age}</td>
+            <td>{item.weight}</td>
+            <td>{item.running}</td>
+            <td>{item.status}</td>
+          </tr>
+        );
+      })}
+    </tbody>
+  );
+};
 
 export default App;
