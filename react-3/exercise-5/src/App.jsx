@@ -6,6 +6,7 @@ import { useState } from "react";
 function App() {
   const { get, remove, update, create } = usePost();
   const posts = get();
+  const [editId , setEditId] = useState();
 
   const createPost = (content, image) => {
     let id = `id-${Math.floor(Math.random() * 10000)}`; // generate id here by Math.random() (please use integer)
@@ -22,14 +23,69 @@ function App() {
     create(data);
   };
 
+  const updatePost = (id, content, image) => {
+    let time = new Date().toDateString(); // generate timestamp here by (new Date().toDateString())
+    const user = getUser();
+    const data = {
+      id: id, // ready
+      author: user.author,
+      avatar: user.avatar,
+      time: time,
+      content: content, // ready
+      image: image, // ready
+    };
+    update(data);
+  };
+
+  const enableEdit = (id) => {
+
+  }
+
   return (
     <div id="app">
       <h1>Enter Data</h1>
-      <PostContainer create={createPost} />
+      <EditCOntainer/>
+      {/* <PostContainer create={createPost} /> */}
       <FeedSection posts={posts} removeHandler={remove} />
     </div>
   );
 }
+
+const EditCOntainer = ({updatePost}) => {
+  const [id, setId] = useState();
+  const [content, setContent] = useState();
+  const [image, setImage] = useState();
+
+  const updatePostContainer = () => {
+    updatePost(id, content, image)
+  }
+  return (
+    <div className="post-container">
+      <div className="post-header">
+        <img className="post-avatar" src="avatar.jpg" alt="Your Avatar" />
+        <div className="post-author">You</div>
+      </div>
+      <div className="post-content">
+        <textarea
+          className="post-input"
+          placeholder="What's on your mind?"
+          onChange={(ev) => setContent(ev.target.value)}
+        ></textarea>
+        <input
+          className="post-input"
+          type="text"
+          placeholder="image"
+          onChange={(ev) => setImage(ev.target.value)}
+        />
+      </div>
+      <div className="post-actions">
+        <button className="post-button" onClick={createPostInPostContainer}>
+          Post
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const PostContainer = ({ create }) => {
   const [content, setContent] = useState("");
@@ -98,6 +154,7 @@ const Post = ({ id, author, avatar, time, content, image, removeHandler }) => {
       <div className="post-content">{content}</div>
       <img className="post-image" src={image} alt="Post 3" />
       <button onClick={() => removeHandler(id)}>DELETE</button>
+      <button onClick={() => }>EDIT</button>
     </div>
   );
 };
