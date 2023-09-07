@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import Layout from './Layout'
+import { useState } from "react";
+import Layout from "./Layout";
+import Navbar from "./Nav";
 
 const App = () => {
-    
-    return (
-        <Layout>
-            <div>
-                Application
-            </div>
-        </Layout>
-    )
-}
+  return (
+    // <div>
+    //   <Navbar />
+    //   Application
+    // </div>
+    <Layout>
+        <div>
+            Application
+            hello
+        </div>
+    </Layout>
+  );
+};
 
-export default App
-
+export default App;

@@ -1,4 +1,8 @@
+import { createContext } from "react";
 import "./App.css";
+import { useContext } from "react";
+
+const MyContext = createContext();
 
 function App() {
   const posts = [
@@ -32,11 +36,13 @@ function App() {
   ];
 
   return (
-    <div id="app">
-      <h1>Enter Data</h1>
-      <PostContainer />
-      <FeedSection postData={posts} />
-    </div>
+    <MyContext.Provider value={posts}>
+      <div id="app">
+        <h1>Enter Data</h1>
+        <PostContainer/>
+        <FeedSection/>
+      </div>
+    </MyContext.Provider>
   );
 }
 
@@ -60,19 +66,18 @@ const PostContainer = () => {
   );
 };
 
-const FeedSection = ({ postData }) => {
+const FeedSection = () => {
+  const data = useContext(MyContext);
   return (
     <div className="feed">
-      {postData.map((post) => {
-        return (
-          <Post
-            author={post.author}
-            avatar={post.avatar}
-            time={post.time}
-            content={post.content}
-            image={post.image}
-          />
-        );
+      {data.map((item) => {
+        return <Post
+        author = {item.author}
+        avatar = {item.avatar}
+        time = {item.time}
+        content = {item.content}
+        image = {item.image}
+        />;
       })}
     </div>
   );

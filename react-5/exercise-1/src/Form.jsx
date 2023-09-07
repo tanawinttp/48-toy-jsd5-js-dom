@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = ({ submitHandler , postDatas , deleteData}) => {
+const Form = ({ submitHandler }) => {
   const [id, setId] = useState();
   const [name, setName] = useState();
   const [age, setAge] = useState();
@@ -41,12 +41,6 @@ const Form = ({ submitHandler , postDatas , deleteData}) => {
       />
       <button onClick={() => submitHandler(id, name, age, weight, status)}>
         Submit
-      </button>
-      <button onClick={() => postDatas(id, name, age, weight, status)}>
-        SubmitNew
-      </button>
-      <button onClick={() => deleteData(id)}>
-        deletePost
       </button>
     </div>
   );
