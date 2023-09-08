@@ -35,7 +35,7 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        <Header temperature={this.state.temperature} />
+        <Header temperature={this.state.temperature} {this.increase.temperature} />
         <Content temperature={this.state.temperature} />
         <Footer increase={this.increase} decreate={this.decreate} />
       </div>

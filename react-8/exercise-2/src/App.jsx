@@ -53,7 +53,7 @@ class App extends React.Component {
       <div id="app">
         <h1>Enter Data</h1>
         <RunningForm />
-        <TableDisplay memberData={members} />
+        <TableDisplay memberData={this.members} />
       </div>
     );
   }
@@ -61,8 +61,76 @@ class App extends React.Component {
 
 class RunningForm extends React.Component {
   // code here
+  render(){
+    return(
+      <form id="data_form">
+        <label htmlFor="name">Name : </label>
+        <input type="text" name="name" id="name" />
+        <br />
+        <br />
+
+        <label htmlFor="age">Age : </label>
+        <input type="number" name="age" id="age" />
+        <br />
+        <br />
+
+        <label htmlFor="weight">Weight : </label>
+        <input type="number" name="weight" id="weight" />
+        <br />
+        <br />
+
+        <label htmlFor="running">Current Running (Min) : </label>
+        <input type="number" name="running" id="running" />
+        <br />
+        <br />
+
+        <button type="button">Add Data</button>
+      </form>
+    );
+  }
 }
 
 // class of TableDisplay here
+class TableDisplay extends React.Component{
+
+  constructor(props){
+    super(props);
+  }
+  
+  render(){
+    return(
+      <>
+      <h1>Entered Data</h1>
+      <table id="data-table" border="1" width="100%">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Weight</th>
+            <th>Current Running (Minutes)</th>
+            <th>Good Running</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.memberData.map((item) => {
+            return (
+              <tr>
+                <td>{item.name}</td>
+                <td>{item.age}</td>
+                <td>{item.weight}</td>
+                <td>{item.running}</td>
+                <td>{item.status}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+    );
+  }
+
+}
+
+
 
 export default App;
